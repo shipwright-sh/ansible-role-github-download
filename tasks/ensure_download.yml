@@ -30,8 +30,8 @@
         | replace('%NVERSION%', github_pkg_version | regex_replace('^v', ''))
         | replace('%OS%', ansible_system | lower)
         | replace('%OSCAPITALIZED%', ansible_system)
-        | replace('%ARCH%', ansible_architecture | replace('x86_64', 'amd64'))
-        | replace('%ARCHRAW%', ansible_architecture)
+        | replace('%ARCH%', 'amd64')
+        | replace('%ARCHRAW%', 'x86_64')
       }}"
     github_pkg_extracted_filename: "{{
       github_pkg.extracted_filename | default(github_pkg.name)
@@ -39,8 +39,8 @@
         | replace('%NVERSION%', github_pkg_version | regex_replace('^v', ''))
         | replace('%OS%', ansible_system | lower)
         | replace('%OSCAPITALIZED%', ansible_system)
-        | replace('%ARCH%', ansible_architecture | replace('x86_64', 'amd64'))
-        | replace('%ARCHRAW%', ansible_architecture)
+        | replace('%ARCH%', 'amd64')
+        | replace('%ARCHRAW%', 'x86_64')
       }}"
     github_pkg_versioned_filename: "{{ github_pkg.name }}-{{ github_pkg_version | regex_replace('^v', '') }}"
     github_pkg_extension: "{{ (github_pkg.filename | splitext)[1] }}"
